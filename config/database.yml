@@ -83,7 +83,7 @@ test:
 production:
   <<: *default
   database: test2_api_production
-  #username: test2_api
-  #password: <%= ENV['TEST2_API_DATABASE_PASSWORD'] %>
+  username: test2_api
+  password: <%= ENV['TEST2_API_DATABASE_PASSWORD'] %>
   username: postgres
   password: vero8630
