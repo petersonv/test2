@@ -1,35 +1,24 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :update, :destroy, :create]
+  before_action :set_question, only: [:show, :update, :destroy]
 
   # GET /questions
   def index
+    #@questions = Question.all
     @questions = Question.order("RANDOM()").limit(1)
+    #@questions = Question.limit(11).order("RANDOM()")
     #@questions = Question.order("RANDOM()").limit(10)
     render json: @questions
   end
 
-
+  #shows random questions
+  #render json: Question.find_by(id: params[:id]) ||Question.random
 
   # GET /questions/1
-  #shows random question...but not 10
-  #render json: Question.find_by(id: params[:id]) ||Question.random
   def show
     render json: @question
-    #@questions = Question.order("RANDOM()").limit(10)
-
-    render json: @questions
+    #@questions = Question.order("RANDOM()").limit(1)
+    #render json: @questions
   end
-
-
-
-
-
-
-
-
-
-
-
 
 
   # POST /questions
